@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>One Time Password </title>
+        <style>
+        	body {background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            a {font-size: 0.5em; color: maroon}
+        </style>
+
+	</head>
+	<body onload="generate()">
+	<h1> Final Verification Step </h1>
+	<h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> <a onclick="otpnew()" href=""> New OTP </a></h2>
+    <button onclick="confirm()"> Enter the OTP as shown above </button>
+	
+    
+	<script>
+        function generate(){
+            var otprandom = Math.floor(Math.random()*(1000000-100000)+100000);
+
+            document.getElementById("otp").innerHTML=otprandom;
+        }
+
+        function otpnew(){
+            var otpneww = Math.floor(Math.random()*(1000000-100000)+100000);
+
+            document.getElementById("otp").innerHTML=otpneww;
+        }
+
+        function confirm(){
+            var input = parseInt(prompt("Please enter the otp: "));
+
+            if (input == document.getElementById("otp").innerHTML){
+                alert("You've enetered the correct otp! Redirecting you right now...");
+                window.open("https://www.instagram.com/shyyyshyyy12/?igsh=MWNsczdoamlxOTF5Yg%3D%3D&fbclid=IwAR3Z___RayxDsZXQ5ka0CHmx3F_RGKi1PZ0VdI2hKpoAVdHzop5D7aGDQHg");
+            }
+            else{
+                alert("Please try again.");
+                otpnew();
+            }
+        }
+    </script>
+</body>
+</html>

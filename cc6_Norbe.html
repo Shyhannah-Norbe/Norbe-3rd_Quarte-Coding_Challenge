@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coding Challenge 6
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: lightseagreen;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <h1> Quadratic Formula </h1>
+
+        <button onclick="solve()">Find the root</button>
+
+        <h4 id="result"></h4>
+
+        <script>
+            function solve(){
+                var a = prompt("Enter a: ");
+
+                while (isNaN(a)) { 
+                    a = prompt("Please enter a : ");
+                }
+
+                var b = prompt("Enter b: ");
+
+                while (isNaN(b)) { 
+                    b = prompt("Please enter b: ");
+                }
+
+                var c = prompt("Enter c: ");
+
+                while (isNaN(c)) { 
+                    c = prompt("Please enter c: ");
+                }
+
+
+                var discriminant = Math.sqrt(b * b - 4 * a * c);
+                var results;
+                
+                if (discriminant == 0){
+                    results = -b / (2 * a);
+                }
+        
+                else if (discriminant > 0){
+                    var x1 = (-b - discriminant) / (2 * a);
+                    var x2 = (-b + discriminant) / (2 * a);
+
+                    results = x1 + ", " + x2;
+                }
+                
+                else {
+                    results = "imaginary";
+                }
+
+                document.getElementById("result").innerHTML = "The answer is " + results + ".";
+            }
+        </script>
+    </body>
+</html>
